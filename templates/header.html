@@ -1,0 +1,36 @@
+<!-- header.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.Title}}</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+<nav class="topnav" id="myTopnav">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <div class="dropdown">
+        <button class="dropbtn">Services</button>
+        <div class="dropdown-content">
+            <a href="/service1">Service 1</a>
+            <a href="/service2">Service 2</a>
+            <a href="/service3">Service 3</a>
+        </div>
+    </div>
+    <a href="javascript:void(0);" class="icon" id="menuIcon">&#9776;</a>
+</nav>
+<main></main> <!-- Closing main tag -->
+<script>
+    function toggleNav() {
+        var nav = document.getElementById("myTopnav");
+        nav.classList.toggle("responsive");
+    }
+
+    document.getElementById("menuIcon").addEventListener("click", toggleNav);
+</script>
+</body>
+</html>
+
