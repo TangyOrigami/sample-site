@@ -65,11 +65,17 @@ nav a {
 
 main {
     margin: 20px;
+    padding: 20px;
+    color: #3d3d3d; /* Text color for the title part */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 h1 {
-    color: #333;
     margin-bottom: 20px;
+    font-size: 36px;
+    font-weight: bold;
 }
 
 p {
@@ -77,55 +83,18 @@ p {
     line-height: 1.6;
 }
 
-nav a, .dropdown, .dropdown-content {
-    transition: background-color 0.3s;
+body.home {
+    background-image: url('../assets/blur-hospital.jpg');
 }
 
-@media screen and (max-width: 600px) {
-    nav a, .dropdown {
-        float: none;
-        display: block;
-        text-align: left;
-    }
-
-    .dropdown-content {
-        position: static;
-        display: none;
-    }
-
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
+body.service1 {
+    background-image: url('../assets/medicine-science-concept-background.png');
 }
 
-.icon {
-    display: none;
-    font-size: 24px;
-    cursor: pointer;
+body.service2 {
+    background-image: url('../assets/medicine-science-concept-background.png');
 }
 
-@media screen and (max-width: 600px) {
-    nav a:not(:first-child), .dropdown {
-        display: none;
-    }
-
-    .icon {
-        display: block;
-    }
-
-    .dropdown-content {
-        display: block;
-        position: static;
-    }
-
-    .dropdown:hover .dropdown-content {
-        display: none;
-    }
-
-    .responsive a, .responsive .dropdown {
-        display: block;
-        text-align: left;
-        width: 100%;
-    }
+body.service3 {
+    background-image: url('../assets/medicine-science-concept-background.png');
 }
-

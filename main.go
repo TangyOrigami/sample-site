@@ -1,9 +1,10 @@
 package main
 
 import (
-    "html/template"
-    "net/http"
-    "path/filepath"
+	"fmt"
+	"html/template"
+	"net/http"
+	"path/filepath"
 )
 
 type PageVariables struct {
@@ -17,7 +18,9 @@ func main() {
     http.HandleFunc("/service3", ServicePage)
 
     http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+    http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))
 
+    fmt.Println("Running on: http://localhost:8080")
     http.ListenAndServe(":8080", nil)
 }
 
@@ -50,4 +53,3 @@ func ServicePage(w http.ResponseWriter, r *http.Request) {
 
     tmpl.Execute(w, pageVariables)
 }
-
