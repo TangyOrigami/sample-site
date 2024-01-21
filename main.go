@@ -8,48 +8,46 @@ import (
 )
 
 type PageVariables struct {
-    Title string
+	Title string
 }
 
 func main() {
-    http.HandleFunc("/", HomePage)
-    http.HandleFunc("/service1", ServicePage)
-    http.HandleFunc("/service2", ServicePage)
-    http.HandleFunc("/service3", ServicePage)
+	http.HandleFunc("/", HomePage)
+	http.HandleFunc("/service1", ServicePage)
+	http.HandleFunc("/service2", ServicePage)
+	http.HandleFunc("/service3", ServicePage)
 
-    http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
-    http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+	http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))
 
-    fmt.Println("Running on: http://localhost:8080")
-    http.ListenAndServe(":8080", nil)
+	fmt.Println("Running on: http://localhost:8080")
+	http.ListenAndServe(":8080", nil)
 }
 
 func HomePage(w http.ResponseWriter, r *http.Request) {
-    pageVariables := PageVariables{
-        Title: "Sample Site",
-    }
+	pageVariables := PageVariables{
+		Title: "Sample Site",
+	}
 
-    tmpl, err := template.New("index.html").ParseFiles(filepath.Join("templates", "index.html"), filepath.Join("templates", "header.html"))
-    if err != nil {
-        http.Error(w, err.Error(), http.StatusInternalServerError)
-        return
-    }
-
-    tmpl.Execute(w, pageVariables)
+	renderTemplate(w, "index.html", pageVariables)
 }
 
 func ServicePage(w http.ResponseWriter, r *http.Request) {
-    serviceName := r.URL.Path[1:]
+	serviceName := r.URL.Path[1:]
+	pageVariables := PageVariables{
+		Title: "Service " + serviceName,
+	}
 
-    pageVariables := PageVariables{
-        Title: "Service " + serviceName,
-    }
-
-    tmpl, err := template.New("service.html").ParseFiles(filepath.Join("templates", "service.html"), filepath.Join("templates", "header.html"))
-    if err != nil {
-        http.Error(w, err.Error(), http.StatusInternalServerError)
-        return
-    }
-
-    tmpl.Execute(w, pageVariables)
+	renderTemplate(w, "service.html", pageVariables)
 }
+
+func renderTemplate(w http.ResponseWriter, templateName string, data interface{}) {
+	tmpl, err := template.New(templateName).ParseFiles(filepath.Join("templates", templateName), filepath.Join("templates", "header.html"))
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	tmpl.Execute(w, data)
+}
+

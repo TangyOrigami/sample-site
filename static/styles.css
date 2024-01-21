@@ -87,9 +87,19 @@ nav a:hover {
     background-color: var(--baby-powder); /* Fallback background color */
 }
 
+.background-container.service1, .background-container.service2, .background-container.service3 {
+    padding: 60px;
+    background-image: url('../assets/medicine-science-concept-background.png');
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    background-color: var(--baby-powder); /* Fallback background color */
+}
+
 .section-content {
     margin: 20px;
     padding: 25px;
+    max-width: fit-content;
     background-color: var(--baby-powder); /* White background for the hovering card */
     border-radius: 10px; /* Optional: Add rounded corners for a card-like effect */
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow for depth */
@@ -98,7 +108,8 @@ nav a:hover {
 /* Divider styling */
 hr {
     border: 0;
-    height: 10px;
+    margin: 0px;
+    height: 20px;
     background-color: #ddd; /* Color of the divider line */
 }
 
@@ -111,12 +122,4 @@ h1 {
 p {
     color: var(--orange-peel);
     line-height: 1.6;
-}
-
-body.service1, body.service2, body.service3 {
-    background-image: url('../assets/medicine-science-concept-background.png');
-    background-color: #eee; 
-    background-position: center; 
-    background-repeat: no-repeat; 
-    background-size: cover; 
 }
