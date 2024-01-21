@@ -2,11 +2,24 @@
 
 <body>
     <div class="background-container home">
-        <div class="section-content">
+        <div class="title-content">
             <h1>{{.Title}}</h1>
-            <p>This is the content of the {{.Title}} page.</p>
+            <p>Welcome to our Sample Site!</p>
         </div>
     </div>
-    <hr> 
+    <hr>
+
+    <!-- Your actual content goes here -->
+    <div class="section-content">
+        <h2>Latest Updates</h2>
+        <p>Check out our latest news and updates:</p>
+        <ul>
+            <li>Exciting Announcement</li>
+            <li>New Features Added</li>
+            <li>Upcoming Events</li>
+        </ul>
+    </div>
+
     {{template "footer.html" .}}
 </body>
+

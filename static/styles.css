@@ -85,7 +85,7 @@ nav a:hover {
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover;
-    background-color: var(--baby-powder); /* Fallback background color */
+    background-color: var(--baby-powder); 
 }
 
 .background-container.service1, .background-container.service2, .background-container.service3 {
@@ -94,24 +94,42 @@ nav a:hover {
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover;
-    background-color: var(--baby-powder); /* Fallback background color */
+    background-color: var(--baby-powder); 
 }
 
-.section-content {
-    margin: 20px;
-    padding: 25px;
-    max-width: fit-content;
-    background-color: var(--baby-powder); /* White background for the hovering card */
-    border-radius: 10px; /* Optional: Add rounded corners for a card-like effect */
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow for depth */
+.title-content {
+    padding: 15px;
+    background-color: var(--baby-powder); 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: fit-content; 
 }
 
 h1 {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-size: 36px;
     font-weight: bold;
 }
 
+.section-content {
+    margin-top: 10px;
+    padding: 20px;
+}
+
+h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
 p {
     color: var(--orange-peel);
     line-height: 1.6;
@@ -125,3 +143,18 @@ hr {
     background-color: var(--light-gray); /* Color of the divider line */
 }
 
+footer {
+    background-color: var(--rich-black); /* Rich Black */
+    color: var(--baby-powder); /* Baby Powder */
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: auto;
+    margin: 0 auto;
+}
+
+.footer-container p {
+    margin: 0;
+}
