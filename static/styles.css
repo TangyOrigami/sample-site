@@ -98,11 +98,12 @@ nav a:hover {
 }
 
 .title-content {
+    max-width: 275px;
+    box-sizing: border-box;
     padding: 15px;
     background-color: var(--baby-powder); 
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: fit-content; 
 }
 
 h1 {
@@ -112,24 +113,26 @@ h1 {
 }
 
 .section-content {
-    margin-top: 10px;
-    padding: 20px;
+    margin: 15px 25px;
+    padding-left:25px;
 }
 
 h2 {
     margin-bottom: 10px;
+    margin-top: 0px;
     font-size: 24px;
     font-weight: bold;
 }
 
 ul {
-    list-style-type: none;
+    list-style-type: disc;
     padding: 0;
 }
 
 ul li {
     margin-bottom: 8px;
 }
+
 p {
     color: var(--orange-peel);
     line-height: 1.6;
