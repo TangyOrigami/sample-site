@@ -12,6 +12,7 @@ body, h1, p, ul {
     --turquoise: #41ead4;
     --baby-powder: #fdfffc;
     --orange-peel: #ff9f1c;
+    --light-gray: #ddd;
 }
 
 nav {
@@ -110,7 +111,7 @@ hr {
     border: 0;
     margin: 0px;
     height: 20px;
-    background-color: #ddd; /* Color of the divider line */
+    background-color: var(--light-gray); /* Color of the divider line */
 }
 
 h1 {
