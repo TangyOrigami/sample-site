@@ -1,17 +1,28 @@
 body, h1, p, ul {
     margin: 0;
     padding: 0;
+    font-family: 'Cairo Play', sans-serif;
+    color: #333;
+}
+
+/* Color Palette */
+:root {
+    --rich-black: #011627;
+    --imperial-red: #f71735;
+    --turquoise: #41ead4;
+    --baby-powder: #fdfffc;
+    --orange-peel: #ff9f1c;
 }
 
 nav {
-    background-color: #333;
+    background-color: var(--rich-black);
     overflow: hidden;
 }
 
 nav a {
     float: left;
     display: block;
-    color: white;
+    color: var(--baby-powder);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -26,21 +37,25 @@ nav a {
     font-size: 16px;
     border: none;
     outline: none;
-    color: white;
+    color: var(--baby-powder);
     padding: 14px 16px;
     background-color: inherit;
     font-family: inherit;
     margin: 0;
 }
 
+nav a:hover {
+    background-color: var(--imperial-red);
+}
+
 .navbar a:hover, .dropdown:hover .dropbtn {
-    background-color: #555;
+    background-color: var(--imperial-red);
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: var(--baby-powder);
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -48,7 +63,7 @@ nav a {
 
 .dropdown-content a {
     float: none;
-    color: black;
+    color: var(--rich-black);
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -56,20 +71,35 @@ nav a {
 }
 
 .dropdown-content a:hover {
-    background-color: #ddd;
+    background-color: var(--turquoise);
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-main {
-    margin: 20px;
-    padding: 20px;
-    color: #3d3d3d; /* Text color for the title part */
+.background-container.home {
+    padding: 60px;
+    background-image: url('../assets/blur-hospital.jpg');
+    background-position: center; 
+    background-repeat: no-repeat; 
     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: var(--baby-powder); /* Fallback background color */
+}
+
+.section-content {
+    margin: 20px;
+    padding: 25px;
+    background-color: var(--baby-powder); /* White background for the hovering card */
+    border-radius: 10px; /* Optional: Add rounded corners for a card-like effect */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow for depth */
+}
+
+/* Divider styling */
+hr {
+    border: 0;
+    height: 10px;
+    background-color: #ddd; /* Color of the divider line */
 }
 
 h1 {
@@ -79,22 +109,14 @@ h1 {
 }
 
 p {
-    color: #555;
+    color: var(--orange-peel);
     line-height: 1.6;
 }
 
-body.home {
-    background-image: url('../assets/blur-hospital.jpg');
-}
-
-body.service1 {
+body.service1, body.service2, body.service3 {
     background-image: url('../assets/medicine-science-concept-background.png');
-}
-
-body.service2 {
-    background-image: url('../assets/medicine-science-concept-background.png');
-}
-
-body.service3 {
-    background-image: url('../assets/medicine-science-concept-background.png');
+    background-color: #eee; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
 }
