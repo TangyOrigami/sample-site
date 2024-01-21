@@ -42,7 +42,12 @@ func ServicePage(w http.ResponseWriter, r *http.Request) {
 }
 
 func renderTemplate(w http.ResponseWriter, templateName string, data interface{}) {
-	tmpl, err := template.New(templateName).ParseFiles(filepath.Join("templates", templateName), filepath.Join("templates", "header.html"))
+	tmpl, err := template.New(templateName).ParseFiles(
+		filepath.Join("templates", templateName),
+		filepath.Join("templates", "header.html"),
+		filepath.Join("templates", "footer.html"),
+	)
+
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
