@@ -79,6 +79,17 @@ nav a:hover {
     display: block;
 }
 
+/* Icon is not working */
+i {
+    background-image: url('../assets/cardiogram.svg');
+    float: right;
+    color: #ff9f1c;
+    background-color: inherit;
+    height: 20px;
+    width: 20px;
+    display: block;
+}
+
 .background-container.home {
     padding: 60px;
     background-image: url('../assets/blur-hospital.jpg');
@@ -130,7 +141,6 @@ h1 {
 
 /* Styling for the h2 element */
 h2 {
-    margin-bottom: 10px;
     font-size: 24px;
     font-weight: bold;
     color: var(--baby-powder); /* Brighter color for accessibility */
@@ -149,6 +159,7 @@ ul li {
 p {
     color: var(--orange-peel);
     line-height: 1.6;
+    margin-top: 10px;
 }
 
 /* Divider styling */
