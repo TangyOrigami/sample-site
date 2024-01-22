@@ -117,11 +117,24 @@ h1 {
     padding-left:25px;
 }
 
+/* Styling for the trapezoid */
+.trapezoid {
+    width: 0;
+    height: 0;
+    border-left: 225px solid #f71735; 
+    border-bottom: 45px solid var(--imperial-red); 
+    border-right: 40px solid rgb(0 0 0 / 0%); 
+    margin-bottom: 10px; 
+    margin-left: -50px;
+}
+
+/* Styling for the h2 element */
 h2 {
     margin-bottom: 10px;
-    margin-top: 0px;
     font-size: 24px;
     font-weight: bold;
+    color: var(--baby-powder); /* Brighter color for accessibility */
+    margin-left: -175px;
 }
 
 ul {
@@ -132,7 +145,7 @@ ul {
 ul li {
     margin-bottom: 8px;
 }
-
+ 
 p {
     color: var(--orange-peel);
     line-height: 1.6;

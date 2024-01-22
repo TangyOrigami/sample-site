@@ -2,11 +2,25 @@
 
 <body>
     <div class="background-container service1">
-        <div class="section-content">
+        <div class="title-content">
             <h1>{{.Title}}</h1>
             <p>This is the content of the {{.Title}} page.</p>
         </div>
     </div>
     <hr> 
+
+    <div class="section-content">
+        <div class="flag">
+            <h2>Latest Updates</h2>
+        </div>
+        <p>Check out our latest news and updates:</p>
+        <ul>
+            <li>Exciting Announcement</li>
+            <li>New Features Added</li>
+            <li>Upcoming Events</li>
+        </ul>
+    </div>
+
     {{template "footer.html" .}}
 </body>
+
