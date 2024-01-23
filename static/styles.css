@@ -123,28 +123,46 @@ h1 {
     font-weight: bold;
 }
 
+.section-container {
+    display: flex;
+    flex-wrap: wrap
+}
+
 .section-content {
     margin: 15px 25px;
     padding-left:25px;
 }
 
-/* Styling for the trapezoid */
 .trapezoid {
     width: 0;
     height: 0;
-    border-left: 225px solid #f71735; 
+    border-left: 300px solid #f71735; 
     border-bottom: 45px solid var(--imperial-red); 
     border-right: 40px solid rgb(0 0 0 / 0%); 
     margin-bottom: 10px; 
     margin-left: -50px;
 }
 
-/* Styling for the h2 element */
+.rectangle {
+    width: fit-content;
+    padding: 0px 15px;
+    align-content: center;
+    text-align: center;
+    background-color: var(--orange-peel);
+    margin-bottom: 10px; 
+}
+
 h2 {
+    font-size: px;
+    font-weight: bold;
+    color: var(--baby-powder);
+    margin-left: -250px;
+}
+
+h3 {
     font-size: 24px;
     font-weight: bold;
-    color: var(--baby-powder); /* Brighter color for accessibility */
-    margin-left: -175px;
+    color: var(--baby-powder);
 }
 
 ul {
@@ -185,3 +203,4 @@ footer {
 .footer-container p {
     margin: 0;
 }
+
