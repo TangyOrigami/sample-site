@@ -79,14 +79,11 @@ nav a:hover {
     display: block;
 }
 
-/* Icon is not working */
 i {
-    background-image: url('../assets/cardiogram.svg');
     float: right;
+    padding: 10px;
     color: #ff9f1c;
     background-color: inherit;
-    height: 20px;
-    width: 20px;
     display: block;
 }
 
@@ -117,15 +114,9 @@ i {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-    margin-bottom: 10px;
-    font-size: 36px;
-    font-weight: bold;
-}
-
 .section-container {
     display: flex;
-    flex-wrap: wrap
+    flex-wrap: wrap;
 }
 
 .section-content {
@@ -133,14 +124,23 @@ h1 {
     padding-left:25px;
 }
 
+.trap-wrapper {
+    display:flex;
+    height:50px;
+}
+
 .trapezoid {
-    width: 0;
-    height: 0;
-    border-left: 300px solid #f71735; 
-    border-bottom: 45px solid var(--imperial-red); 
-    border-right: 40px solid rgb(0 0 0 / 0%); 
-    margin-bottom: 10px; 
-    margin-left: -50px;
+    align-content: center;
+    text-align: center;
+    background-color: var(--imperial-red);
+    border-top-right-radius: 1.5px;
+}
+
+.triangle {
+    border: 50px solid transparent;
+    border-bottom: 0;
+    border-left: 50px solid var(--imperial-red);
+    margin-left:-.6px;
 }
 
 .rectangle {
@@ -152,15 +152,22 @@ h1 {
     margin-bottom: 10px; 
 }
 
-h2 {
-    font-size: px;
+h1 {
+    margin-bottom: 10px;
+    font-size: 36px;
     font-weight: bold;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 3px 15px;
     color: var(--baby-powder);
-    margin-left: -250px;
+
 }
 
 h3 {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     color: var(--baby-powder);
 }
@@ -173,7 +180,7 @@ ul {
 ul li {
     margin-bottom: 8px;
 }
- 
+
 p {
     color: var(--orange-peel);
     line-height: 1.6;
