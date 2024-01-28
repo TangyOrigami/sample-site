@@ -27,7 +27,7 @@
             </div>
             <ul>
                 <li>Follow us on all social media platforms with the same handle @ExampleUsername!</li>
-                <li><a href="#">Contact us directly here!</a></li>
+                <li><a href="#contact-form">Contact us directly here!</a></li>
             </ul>
         </div>
         <div class="section-content">
@@ -39,17 +39,19 @@
 
     <hr>
     <section class="section-container">
-        <h1>Contact</h1>
-        <form id="contact-form" hx-post="/form" hx-swap="outerHTML">
-            <!-- Add your form fields here -->
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+        <div class="section-content">
+            <form id="contact-form" hx-post="/form" hx-swap="outerHTML">
+                <h1>Contact Us!</h1>
+                <!-- Add your form fields here -->
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
 
-            <input type="submit" value="Submit">
-        </form>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
     </section>
     {{template "footer.html" .}}
 </body>
