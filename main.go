@@ -15,78 +15,68 @@ type PageVariables struct {
 }
 
 func main() {
-	http.HandleFunc("/", HomePage)
-	http.HandleFunc("/service1", ServicePage)
-	http.HandleFunc("/service2", ServicePage)
-	http.HandleFunc("/service3", ServicePage)
+	mux := pat.New()
 
-    mux := pat.New()
+	mux.Get("/", http.HandlerFunc(HomePage))
+	mux.Get("/service1", http.HandlerFunc(ServicePage))
+	mux.Get("/service2", http.HandlerFunc(ServicePage))
+	mux.Get("/service3", http.HandlerFunc(ServicePage))
 
-    mux.Get("/", http.HandlerFunc(Form))
-    mux.Post("/", http.HandlerFunc(Send))
-    mux.Get("/confirmation", http.HandlerFunc(Confirmation))
+	mux.Get("/form", http.HandlerFunc(Form))
+	mux.Post("/form", http.HandlerFunc(HandleForm))
+	mux.Get("/confirmation", http.HandlerFunc(Confirmation))
 
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 	http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))
 
-	fmt.Println("Running on: http://localhost:8080")
-	http.ListenAndServe(":8080", nil)
+	port := 8080
+	serverAddr := fmt.Sprintf("http://localhost:%d", port)
+	log.Printf("Running on: %s\n", serverAddr)
+
+	if err := http.ListenAndServe(fmt.Sprintf(":%d", port), mux); err != nil {
+		log.Fatal("Server startup error:", err)
+	}
 }
 
 func HomePage(w http.ResponseWriter, r *http.Request) {
-	pageVariables := PageVariables{
-		Title: "Sample Site",
-	}
-
-	renderTemplate(w, "index.html", pageVariables)
+	renderTemplate(w, "index.html", PageVariables{Title: "Sample Site"})
 }
 
 func ServicePage(w http.ResponseWriter, r *http.Request) {
 	serviceName := r.URL.Path[1:]
-	pageVariables := PageVariables{
-		Title: "Service " + serviceName,
-	}
-
-	renderTemplate(w, "service.html", pageVariables)
+	renderTemplate(w, "service.html", PageVariables{Title: "Service " + serviceName})
 }
 
 func Form(w http.ResponseWriter, r *http.Request) {
-	pageVariables := PageVariables{
-		Title: "Sample Site",
-	}
+	renderTemplate(w, "confirmation.html", PageVariables{Title: "Sample Site"})
+}
 
-	renderTemplate(w, "form.html", pageVariables)
+func HandleForm(w http.ResponseWriter, r *http.Request) {
+	// Handle the form submission here
+	// Retrieve form data using r.FormValue("fieldname")
+	// Perform necessary actions (e.g., send email)
+
+	// Respond with the confirmation template
+	pageVariables := PageVariables{Title: "Sample Site"}
+	renderTemplate(w, "confirmation.html", pageVariables)
 }
 
 func Confirmation(w http.ResponseWriter, r *http.Request) {
-	pageVariables := PageVariables{
-		Title: "Sample Site",
-	}
-
-    renderTemplate(w, "confirmation.html", pageVariables)
+	renderTemplate(w, "confirmation.html", PageVariables{Title: "Sample Site"})
 }
-
-func Send(w http.ResponseWriter, r *http.Request) {
-    // Step 1: Validate Form
-    // Step 2: Send message in email
-    // Step 3: Redirect to confirmation page
-}
-
 
 func renderTemplate(w http.ResponseWriter, templateName string, data interface{}) {
-	tmpl, err := template.New(templateName).ParseFiles(
+	// Load templates once and cache them for better performance
+	templates := template.Must(template.ParseFiles(
 		filepath.Join("templates", templateName),
 		filepath.Join("templates", "header.html"),
 		filepath.Join("templates", "footer.html"),
-	)
+	))
 
+	err := templates.ExecuteTemplate(w, templateName, data)
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-
-	if err := tmpl.Execute(w, data); err != nil {
-		log.Print(err)
-		http.Error(w, "Sorry, something went wrong", http.StatusInternalServerError)
+		log.Printf("Error executing template %s: %v", templateName, err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 	}
 }
+
