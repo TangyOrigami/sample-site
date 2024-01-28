@@ -3,10 +3,11 @@ package main
 import (
 	"fmt"
 	"html/template"
+	"log"
 	"net/http"
 	"path/filepath"
 
-    "github.com/bmizerany/pat"
+	"github.com/bmizerany/pat"
 )
 
 type PageVariables struct {
@@ -84,5 +85,8 @@ func renderTemplate(w http.ResponseWriter, templateName string, data interface{}
 		return
 	}
 
-	tmpl.Execute(w, data)
+	if err := tmpl.Execute(w, data); err != nil {
+		log.Print(err)
+		http.Error(w, "Sorry, something went wrong", http.StatusInternalServerError)
+	}
 }
