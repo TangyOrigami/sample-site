@@ -15,6 +15,7 @@ type PageVariables struct {
 }
 
 func main() {
+	fmt.Print("asd;flkjas;dlfkja")
 	mux := pat.New()
 
 	mux.Get("/", http.HandlerFunc(HomePage))
@@ -79,4 +80,3 @@ func renderTemplate(w http.ResponseWriter, templateName string, data interface{}
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 	}
 }
-
